@@ -106,7 +106,7 @@ procedure Animation is
 
          Context := Create (Get_Surface (Canvas));
 
-         Set_Source_RGB(Context, 1.0, 1.0, 1.0);
+         Set_Source_RGB (Context, 1.0, 1.0, 1.0);
          Paint (Context);
 
          Draw_Circle (Context, Black,   0);
@@ -119,6 +119,17 @@ procedure Animation is
          Draw_Circle (Context, Black, 175);
          Draw_Circle (Context, Black, 200);
          Draw_Circle (Context, Blue,  225);
+
+         Set_Source_RGB (Context, 0.0, 0.0, 0.0);
+         Select_Font_Face (Context,
+                           "Monospace",
+                           Cairo_Font_Slant_Normal,
+                           Cairo_Font_Weight_Normal);
+         Set_Font_Size(Context, 20.0);
+         Set_Line_Width(Context, 0.5);
+         Move_To (Context, 10.0, 20.0);
+         Show_Text (Context, "Frame Number: " &
+                    Natural'Image (Frame_Number));
 
          Canvas.Queue_Draw;
          Destroy (Context);
