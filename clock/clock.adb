@@ -41,11 +41,11 @@ with Interfaces.C.Strings;  use Interfaces.C.Strings;
 procedure Clock is
 
    Font_Scaling_Factor : constant := 3.0;
-   Time_Format         : constant String := "%H%M";
+   Time_Format         : constant Picture_String := "%H%M";
 
    Foreground_Red      : constant := 1.0;
-   Foreground_Green    : constant := 1.0;
-   Foreground_Blue     : constant := 1.0;
+   Foreground_Green    : constant := 0.0;
+   Foreground_Blue     : constant := 0.0;
 
    Background_Red      : constant := 0.0;
    Background_Green    : constant := 0.0;
@@ -125,7 +125,7 @@ procedure Clock is
             Time_Extents : Aliased Cairo_Text_Extents;
             Time_String  : Constant String := GNAT.Calendar.Time_IO.Image
                                                  (Timestamp,
-                                                  "%H%M");
+                                                  Time_Format);
          begin
             -- Paint clock text --
             Text_Extents (Context,
