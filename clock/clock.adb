@@ -112,7 +112,7 @@ procedure Clock is
                          Foreground_Green,
                          Foreground_Blue);
          Select_Font_Face (Context,
-                           "Hack",
+                           "Monospace",
                            Cairo_Font_Slant_Normal,
                            Cairo_Font_Weight_Normal);
          Set_Font_Size (Context, GDouble (Width) / Font_Scaling_Factor);
